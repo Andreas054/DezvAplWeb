@@ -3,29 +3,26 @@ using DAW_Lab1;
 
 List<Student> lista_studenti = new List<Student>
 {
-    new Student { Nume = "Daniel", Prenume = "Mihai", Varsta = 19, NrMatricol = 225, AnInscriere = 2022},
-    new Student { Nume = "Marian", Prenume = "Popescu", Varsta = 20, NrMatricol = 305, AnInscriere = 2021},
-    new Student { Nume = "Alina", Prenume = "Dumitru", Varsta = 18, NrMatricol = 294, AnInscriere = 2023}
-};
-
-lista_studenti[0].Materii = new List<Materie>
-{
-    new Materie { titlu = "Algebra", durata = "2h"},
-    new Materie { titlu = "Analiza", durata = "1h30m"}
-};
-
-lista_studenti[1].Materii = new List<Materie>
-{
-    new Materie { titlu = "Structuri de Date", durata = "2h"},
-    new Materie { titlu = "Arhitectura Sistemelor de Calcul", durata = "3h"},
-    new Materie { titlu = "Sisteme de Operare", durata = "2h"}
-};
-
-lista_studenti[2].Materii = new List<Materie>
-{
-    new Materie { titlu = "Limbaje Formale si Automate", durata = "1h"},
-    new Materie { titlu = "Engleza", durata = "30m"},
-    new Materie { titlu = "Baze de Date", durata = "2h30m"}
+    new Student { Nume = "Daniel", Prenume = "Mihai", Varsta = 19, NrMatricol = 225, AnInscriere = 2022, Materii = new List<Materie>
+        {
+            new Materie { titlu = "Algebra", durata = "2h"},
+            new Materie { titlu = "Analiza", durata = "1h30m"}
+        }
+    },
+    new Student { Nume = "Marian", Prenume = "Popescu", Varsta = 20, NrMatricol = 305, AnInscriere = 2021, Materii = new List<Materie>
+        {
+            new Materie { titlu = "Structuri de Date", durata = "2h"},
+            new Materie { titlu = "Arhitectura Sistemelor de Calcul", durata = "3h"},
+            new Materie { titlu = "Sisteme de Operare", durata = "2h"}
+        }
+    },
+    new Student { Nume = "Alina", Prenume = "Dumitru", Varsta = 18, NrMatricol = 294, AnInscriere = 2023, Materii = new List<Materie>
+        {
+            new Materie { titlu = "Limbaje Formale si Automate", durata = "1h"},
+            new Materie { titlu = "Engleza", durata = "30m"},
+            new Materie { titlu = "Baze de Date", durata = "2h30m"}
+        }
+    }
 };
 
 for (int i = 0; i < lista_studenti.Count; i++)

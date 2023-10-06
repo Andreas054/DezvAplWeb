@@ -12,3 +12,17 @@ C:\Users\DellMX\source\repos\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\refint\DAW-Lab1.
 C:\Users\DellMX\source\repos\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.pdb
 C:\Users\DellMX\source\repos\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.genruntimeconfig.cache
 C:\Users\DellMX\source\repos\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\ref\DAW-Lab1.dll
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\bin\Debug\net7.0\DAW-Lab1.exe
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\bin\Debug\net7.0\DAW-Lab1.deps.json
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\bin\Debug\net7.0\DAW-Lab1.runtimeconfig.json
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\bin\Debug\net7.0\DAW-Lab1.dll
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\bin\Debug\net7.0\DAW-Lab1.pdb
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.AssemblyInfoInputs.cache
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.AssemblyInfo.cs
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.csproj.CoreCompileInputs.cache
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.dll
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\refint\DAW-Lab1.dll
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.pdb
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\DAW-Lab1.genruntimeconfig.cache
+C:\Users\DellMX\Documents\GitHub\DezvAplWeb\DAW-Lab1\DAW-Lab1\obj\Debug\net7.0\ref\DAW-Lab1.dll

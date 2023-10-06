@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DellMX\\source\\repos\\DAW-Lab1\\DAW-Lab1\\DAW-Lab1.csproj",
+      "projectUniqueName": "C:\\Users\\DellMX\\Documents\\GitHub\\DezvAplWeb\\DAW-Lab1\\DAW-Lab1\\DAW-Lab1.csproj",
       "projectName": "DAW-Lab1",
-      "projectPath": "C:\\Users\\DellMX\\source\\repos\\DAW-Lab1\\DAW-Lab1\\DAW-Lab1.csproj",
+      "projectPath": "C:\\Users\\DellMX\\Documents\\GitHub\\DezvAplWeb\\DAW-Lab1\\DAW-Lab1\\DAW-Lab1.csproj",
       "packagesPath": "C:\\Users\\DellMX\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DellMX\\source\\repos\\DAW-Lab1\\DAW-Lab1\\obj\\",
+      "outputPath": "C:\\Users\\DellMX\\Documents\\GitHub\\DezvAplWeb\\DAW-Lab1\\DAW-Lab1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DellMX\\AppData\\Roaming\\NuGet\\NuGet.Config",
