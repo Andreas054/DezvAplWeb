@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "DAW-Lab1/1.0.0": {
+        "runtime": {
+          "DAW-Lab1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DAW-Lab1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
