@@ -22,5 +22,10 @@ namespace MagazinAlimentar.Repositories.DepartmentRepository
 
             return (List<dynamic>)result;
         }
+
+        public List<Product> GetProductsForDepartment(Guid idDepartment)
+        {
+            return _magazinContext.Products.Where(dep => dep.DepartmentId == idDepartment).ToList();
+        }
     }
 }

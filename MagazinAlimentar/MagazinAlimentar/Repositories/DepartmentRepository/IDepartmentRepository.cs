@@ -5,5 +5,6 @@ namespace MagazinAlimentar.Repositories.DepartmentRepository
 {
     public interface IDepartmentRepository : IGenericRepository<Department>
     {
+        List<Product> GetProductsForDepartment(Guid idDepartment);
     }
 }
