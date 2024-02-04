@@ -9,6 +9,5 @@ namespace MagazinAlimentar.Models.Base
         // generate a value when row is inserted
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        public string Name { get; set; }
     }
 }

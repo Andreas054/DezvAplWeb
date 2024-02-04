@@ -1,12 +1,15 @@
 ﻿using MagazinAlimentar.Data;
 using MagazinAlimentar.DTOs;
+using MagazinAlimentar.Helpers.Attributes;
 using MagazinAlimentar.Models;
+using MagazinAlimentar.Models.Enums;
 using MagazinAlimentar.Models.One_to_Many;
 using MagazinAlimentar.Services.UserService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
+using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace MagazinAlimentar.Controllers
 {
@@ -26,22 +29,64 @@ namespace MagazinAlimentar.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
-        public IActionResult GetUserByName([FromHeader] string name)
+        [HttpPost("createUser")]
+        public async Task<IActionResult> CreateUser(UserRequestDTO user)
         {
-            return Ok(_userService.GetUserByName(name));
+            var userToCreate = new User
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Role = Role.User,
+                PasswordHash = BCryptNet.HashPassword(user.Password)
+            };
+
+            await _userService.Create(userToCreate);
+            return Ok();
         }
 
-        /*[HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpPost("createAdmin")]
+        public async Task<IActionResult> CreateAdmin(UserRequestDTO user)
         {
-            return Ok(await _magazinContext.Users.ToListAsync());
-        }*/
+            var userToCreate = new User
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Role = Role.Admin,
+                PasswordHash = BCryptNet.HashPassword(user.Password)
+            };
 
-        [HttpPost]
-        public async Task<IActionResult> Create(UserDTO userDTO)
+            await _userService.Create(userToCreate);
+            return Ok();
+        }
+
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate(UserRequestDTO user)
         {
-            return Ok(_userService.Create(userDTO));
+            var response = _userService.Authenticate(user);
+            if (response == null)
+            {
+                return BadRequest("Username/password invalid");
+            }
+            return Ok();
+        }
+
+        [Authorization(Role.Admin)]
+        [HttpGet("admin")]
+        public IActionResult GetAllAdmin()
+        {
+            var users = _userService.GetAllUsers();
+            return Ok(users);
+        }
+
+        [Authorization(Role.User)]
+        [HttpGet("user")]
+        public IActionResult GetAllUser()
+        {;
+            return Ok("User");
         }
     }
 }

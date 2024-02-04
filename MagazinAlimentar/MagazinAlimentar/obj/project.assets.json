@@ -75,6 +75,19 @@
           }
         }
       },
+      "BCrypt.Net-Core/1.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BCrypt.Net-Core.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BCrypt.Net-Core.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1270,6 +1283,29 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "BCrypt.Net-Core/1.6.0": {
+      "sha512": "hsKiHGjrnlDW05MzuzzlD9gNP8YOW2KbZ+FbvISrilsKJJ76tXKhWey6psZX5sd7DczNpSU2U6ldjPoblk8BLw==",
+      "type": "package",
+      "path": "bcrypt.net-core/1.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-core.1.6.0.nupkg.sha512",
+        "bcrypt.net-core.nuspec",
+        "lib/net40/BCrypt.Net-Core.dll",
+        "lib/net40/BCrypt.Net-Core.pdb",
+        "lib/net45/BCrypt.Net-Core.dll",
+        "lib/net45/BCrypt.Net-Core.pdb",
+        "lib/net451/BCrypt.Net-Core.dll",
+        "lib/net451/BCrypt.Net-Core.pdb",
+        "lib/net452/BCrypt.Net-Core.dll",
+        "lib/net452/BCrypt.Net-Core.pdb",
+        "lib/netstandard1.3/BCrypt.Net-Core.dll",
+        "lib/netstandard1.3/BCrypt.Net-Core.pdb",
+        "lib/netstandard2.0/BCrypt.Net-Core.dll",
+        "lib/netstandard2.0/BCrypt.Net-Core.pdb"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -3439,6 +3475,7 @@
     "net7.0": [
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "BCrypt.Net-Core >= 1.6.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.11",
       "Microsoft.EntityFrameworkCore >= 7.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.15",
@@ -3453,11 +3490,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DellMX\\source\\repos\\MagazinAlimentar\\MagazinAlimentar\\MagazinAlimentar.csproj",
+      "projectUniqueName": "C:\\Users\\DellMX\\Documents\\GitHub\\DezvAplWeb\\MagazinAlimentar\\MagazinAlimentar\\MagazinAlimentar.csproj",
       "projectName": "MagazinAlimentar",
-      "projectPath": "C:\\Users\\DellMX\\source\\repos\\MagazinAlimentar\\MagazinAlimentar\\MagazinAlimentar.csproj",
+      "projectPath": "C:\\Users\\DellMX\\Documents\\GitHub\\DezvAplWeb\\MagazinAlimentar\\MagazinAlimentar\\MagazinAlimentar.csproj",
       "packagesPath": "C:\\Users\\DellMX\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DellMX\\source\\repos\\MagazinAlimentar\\MagazinAlimentar\\obj\\",
+      "outputPath": "C:\\Users\\DellMX\\Documents\\GitHub\\DezvAplWeb\\MagazinAlimentar\\MagazinAlimentar\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DellMX\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3493,6 +3530,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[12.0.1, )"
+          },
+          "BCrypt.Net-Core": {
+            "target": "Package",
+            "version": "[1.6.0, )"
           },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",

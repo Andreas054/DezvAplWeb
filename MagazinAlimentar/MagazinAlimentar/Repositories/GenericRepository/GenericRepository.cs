@@ -87,7 +87,7 @@ namespace MagazinAlimentar.Repositories.GenericRepository
             return _magazinContext.SaveChanges() > 0;
         }
 
-        public async Task<bool> SaveAsync(TEntity entity)
+        public async Task<bool> SaveAsync()
         {
             return await _magazinContext.SaveChangesAsync() > 0;   
         }

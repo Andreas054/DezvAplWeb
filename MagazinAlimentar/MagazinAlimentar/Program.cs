@@ -1,5 +1,7 @@
 using MagazinAlimentar.Data;
+using MagazinAlimentar.Helpers;
 using MagazinAlimentar.Helpers.Extensions;
+using MagazinAlimentar.Helpers.Middleware;
 using MagazinAlimentar.Repositories.UserRepository;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +16,12 @@ builder.Services.AddDbContext<MagazinContext>(
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IUserRepository, UserRepository>();
+//builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+builder.Services.AddJwtUtils();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -33,6 +37,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<JwtMiddleware>();
 
 app.MapControllers();
 

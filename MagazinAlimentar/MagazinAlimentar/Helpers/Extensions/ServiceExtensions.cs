@@ -1,4 +1,5 @@
-﻿using MagazinAlimentar.Repositories.UserRepository;
+﻿using MagazinAlimentar.Helpers.JwtUtils;
+using MagazinAlimentar.Repositories.UserRepository;
 using MagazinAlimentar.Services.UserService;
 
 namespace MagazinAlimentar.Helpers.Extensions
@@ -15,6 +16,13 @@ namespace MagazinAlimentar.Helpers.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddTransient<IUserService, UserService>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddJwtUtils(this IServiceCollection services)
+        {
+            services.AddScoped<IJwtUtils, JwtUtils.JwtUtils>();
 
             return services;
         }

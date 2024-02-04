@@ -5,9 +5,9 @@ namespace MagazinAlimentar.Services.UserService
 {
     public interface IUserService
     {
-        Task<List<UserDTO>> GetAllUsers();
-
-        public bool Create(UserDTO userDTO);
-        UserDTO GetUserByName(string username);
+        Task<List<User>> GetAllUsers();
+        UserResponseDTO Authenticate(UserRequestDTO model);
+        User GetById(Guid id);
+        Task Create(User newUser);
     }
 }

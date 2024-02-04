@@ -8,8 +8,7 @@ namespace MagazinAlimentar.Helpers
     {
         public MapperProfile()
         {
-            CreateMap<User, UserDTO>();
-            CreateMap<UserDTO, User>();
+
         }
     }
 }

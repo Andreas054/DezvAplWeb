@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using MagazinAlimentar.DTOs;
+using MagazinAlimentar.Helpers.JwtUtils;
+using MagazinAlimentar.Models;
 using MagazinAlimentar.Repositories.UserRepository;
+using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace MagazinAlimentar.Services.UserService
 {
@@ -8,30 +11,39 @@ namespace MagazinAlimentar.Services.UserService
     {
         public IUserRepository _userRepository;
         public IMapper _mapper;
+        public IJwtUtils _jwtUtils;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper, IJwtUtils jwtUtils)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _jwtUtils = jwtUtils;
         }
 
-        public async Task<List<UserDTO>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
-            var userList = await _userRepository.GetAllAsync();
-
-            return _mapper.Map<List<UserDTO>>(userList);
+            return await _userRepository.GetAllAsync();
         }
 
-        public bool Create(UserDTO userDTO)
+        public UserResponseDTO Authenticate(UserRequestDTO model)
         {
-            _userRepository.CreateDTO(userDTO);
-            return true;
-        }
+            var user = _userRepository.FindByUsername(model.UserName);
+            if (user == null || !BCryptNet.Verify(model.Password, user.PasswordHash))
+            {
+                return null;
+            }
 
-        public UserDTO GetUserByName(string name)
+            var jwtToken = _jwtUtils.GenerateJwtToken(user);
+            return new UserResponseDTO(user, jwtToken);
+        }
+        public User GetById(Guid id)
         {
-            var user = _userRepository.FindByName(name);
-            return _mapper.Map<UserDTO>(user);
+            return _userRepository.FindById(id);
+        }
+        public async Task Create(User newUser)
+        {
+            await _userRepository.CreateAsync(newUser);
+            await _userRepository.SaveAsync();
         }
     }
 }

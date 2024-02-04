@@ -7,8 +7,6 @@ namespace MagazinAlimentar.Repositories.UserRepository
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        public void CreateDTO(UserDTO userDTO);
-        User FindByName(string name);
-        public List<User> OrderByRole(string role);
+        User FindByUsername(string username);
     }
 }

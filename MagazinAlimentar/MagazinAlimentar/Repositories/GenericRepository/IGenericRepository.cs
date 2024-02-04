@@ -27,6 +27,6 @@ namespace MagazinAlimentar.Repositories.GenericRepository
 
         // save
         bool Save();
-        Task<bool> SaveAsync(TEntity entity);
+        Task<bool> SaveAsync();
     }
 }
