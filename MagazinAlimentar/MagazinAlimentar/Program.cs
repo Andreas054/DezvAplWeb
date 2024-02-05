@@ -23,6 +23,15 @@ builder.Services.AddServices();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddJwtUtils();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin",
+        builder => builder.WithOrigins("http://localhost:4200")
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+});
+
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
@@ -34,6 +43,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowOrigin");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

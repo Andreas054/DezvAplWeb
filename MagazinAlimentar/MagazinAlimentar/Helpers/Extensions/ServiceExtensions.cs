@@ -1,6 +1,7 @@
 ﻿using MagazinAlimentar.Helpers.JwtUtils;
 using MagazinAlimentar.Repositories.DepartmentRepository;
 using MagazinAlimentar.Repositories.EmployeeRepository;
+using MagazinAlimentar.Repositories.LocationRepository;
 using MagazinAlimentar.Repositories.ProductRepository;
 using MagazinAlimentar.Repositories.UserRepository;
 using MagazinAlimentar.Services.DepartmentService;
@@ -17,6 +18,7 @@ namespace MagazinAlimentar.Helpers.Extensions
             services.AddTransient<IDepartmentRepository, DepartmentRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<ILocationRepository, LocationRepository>();
 
             return services;
         }

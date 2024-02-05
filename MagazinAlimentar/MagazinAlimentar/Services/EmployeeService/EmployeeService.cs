@@ -2,18 +2,21 @@
 using MagazinAlimentar.Helpers.JwtUtils;
 using MagazinAlimentar.Models.Many_to_Many;
 using MagazinAlimentar.Repositories.EmployeeRepository;
+using MagazinAlimentar.Repositories.LocationRepository;
 
 namespace MagazinAlimentar.Services.EmployeeService
 {
     public class EmployeeService : IEmployeeService
     {
         public IEmployeeRepository _employeeRepository;
+        public ILocationRepository _locationRepository;
         public IMapper _mapper;
         public IJwtUtils _jwtUtils;
 
-        public EmployeeService(IEmployeeRepository employeeRepository, IMapper mapper, IJwtUtils jwtUtils)
+        public EmployeeService(IEmployeeRepository employeeRepository, ILocationRepository locationRepository, IMapper mapper, IJwtUtils jwtUtils)
         {
             _employeeRepository = employeeRepository;
+            _locationRepository = locationRepository;
             _mapper = mapper;
             _jwtUtils = jwtUtils;
         }
@@ -44,6 +47,11 @@ namespace MagazinAlimentar.Services.EmployeeService
         {
             _employeeRepository.Delete(employeeDelete);
             await _employeeRepository.SaveAsync();
+        }
+
+        public IQueryable<LocationEmployeeRelation> GetLocationEmployeeRelations()
+        {
+            return _locationRepository.GetAllLocationEmployeeRelations();
         }
     }
 }

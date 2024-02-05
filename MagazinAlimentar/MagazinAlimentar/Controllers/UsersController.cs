@@ -74,14 +74,14 @@ namespace MagazinAlimentar.Controllers
             return Ok();
         }
 
-        //[Authorization(Role.Admin)]
+        [Authorization(Role.Admin)]
         [HttpGet("admin")]
         public async Task<IActionResult> GetAllAdmin()
         {
             return Ok(await _userService.GetAllUsers());
         }
 
-        //[Authorization(Role.User)]
+        [Authorization(Role.User)]
         [HttpGet("user")]
         public IActionResult GetAllUser()
         {;

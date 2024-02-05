@@ -9,5 +9,6 @@ namespace MagazinAlimentar.Services.EmployeeService
         Task Create(Employee newEmployee);
         Task Update(Employee newEmployee);
         Task Delete(Employee employeeDelete);
+        IQueryable<LocationEmployeeRelation> GetLocationEmployeeRelations();
     }
 }

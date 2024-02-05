@@ -62,5 +62,11 @@ namespace MagazinAlimentar.Controllers
             _employeeService.Delete(employeeDelete);
             return Ok(id);
         }
+
+        [HttpGet("getAllEmployeeLocations")]
+        public async Task<IActionResult> GetAllEmloyeeLocation()
+        {
+            return Ok(_employeeService.GetLocationEmployeeRelations());
+        }
     }
 }
