@@ -74,19 +74,46 @@ namespace MagazinAlimentar.Controllers
             return Ok();
         }
 
-        [Authorization(Role.Admin)]
+        //[Authorization(Role.Admin)]
         [HttpGet("admin")]
-        public IActionResult GetAllAdmin()
+        public async Task<IActionResult> GetAllAdmin()
         {
-            var users = _userService.GetAllUsers();
-            return Ok(users);
+            return Ok(await _userService.GetAllUsers());
         }
 
-        [Authorization(Role.User)]
+        //[Authorization(Role.User)]
         [HttpGet("user")]
         public IActionResult GetAllUser()
         {;
             return Ok("User");
+        }
+
+        [HttpPut("updateUser")]
+        public async Task<IActionResult> Update(Guid id, UserSimpleDTO userSimpleDTO)
+        {
+            var userUpdate = _userService.GetById(id);
+            if (userUpdate == null)
+            {
+                return BadRequest("user not found");
+            }
+
+            userUpdate.FirstName = userSimpleDTO.FirstName;
+            userUpdate.LastName = userSimpleDTO.LastName;
+            _userService.Update(userUpdate);
+            return Ok(userUpdate);
+        }
+
+        [HttpDelete("deleteUser")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var userDelete = _userService.GetById(id);
+            if (userDelete == null)
+            {
+                return BadRequest("user not found");
+            }
+
+            _userService.Delete(userDelete);
+            return Ok(id);
         }
     }
 }
