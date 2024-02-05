@@ -15,5 +15,7 @@ namespace MagazinAlimentar.Models
         // public string Role { get; set; }
 
         public Role Role { get; set; }
+
+        public UserDates? UserDates { get; set; }
     }
 }

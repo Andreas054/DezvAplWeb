@@ -36,13 +36,26 @@ namespace MagazinAlimentar.Services.UserService
             var jwtToken = _jwtUtils.GenerateJwtToken(user);
             return new UserResponseDTO(user, jwtToken);
         }
+
         public User GetById(Guid id)
         {
             return _userRepository.FindById(id);
         }
+
         public async Task Create(User newUser)
         {
             await _userRepository.CreateAsync(newUser);
+            await _userRepository.SaveAsync();
+        }
+
+        public async Task Update(User newUser)
+        {
+            _userRepository.Update(newUser);
+            await _userRepository.SaveAsync();
+        }
+        public async Task Delete(User userDelete)
+        {
+            _userRepository.Delete(userDelete);
             await _userRepository.SaveAsync();
         }
     }

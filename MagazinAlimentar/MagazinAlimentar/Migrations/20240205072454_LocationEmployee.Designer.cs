@@ -4,6 +4,7 @@ using MagazinAlimentar.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagazinAlimentar.Migrations
 {
     [DbContext(typeof(MagazinContext))]
-    partial class MagazinContextModelSnapshot : ModelSnapshot
+    [Migration("20240205072454_LocationEmployee")]
+    partial class LocationEmployee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,52 +24,6 @@ namespace MagazinAlimentar.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("MagazinAlimentar.Models.Many_to_Many.Employee", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("MagazinAlimentar.Models.Many_to_Many.Location", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("County")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Locations");
-                });
-
-            modelBuilder.Entity("MagazinAlimentar.Models.Many_to_Many.LocationEmployeeRelation", b =>
-                {
-                    b.Property<Guid>("EmployeeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("LocationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("EmployeeId", "LocationId");
-
-                    b.HasIndex("LocationId");
-
-                    b.ToTable("LocationEmployeeRelations");
-                });
 
             modelBuilder.Entity("MagazinAlimentar.Models.One_to_Many.Department", b =>
                 {
@@ -167,25 +124,6 @@ namespace MagazinAlimentar.Migrations
                     b.ToTable("UserDates");
                 });
 
-            modelBuilder.Entity("MagazinAlimentar.Models.Many_to_Many.LocationEmployeeRelation", b =>
-                {
-                    b.HasOne("MagazinAlimentar.Models.Many_to_Many.Employee", "Employee")
-                        .WithMany("LocationEmployeeRelations")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MagazinAlimentar.Models.Many_to_Many.Location", "Location")
-                        .WithMany("LocationEmployeeRelations")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("Location");
-                });
-
             modelBuilder.Entity("MagazinAlimentar.Models.One_to_Many.Product", b =>
                 {
                     b.HasOne("MagazinAlimentar.Models.One_to_Many.Department", "Department")
@@ -204,16 +142,6 @@ namespace MagazinAlimentar.Migrations
                         .HasForeignKey("MagazinAlimentar.Models.UserDates", "UserId");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("MagazinAlimentar.Models.Many_to_Many.Employee", b =>
-                {
-                    b.Navigation("LocationEmployeeRelations");
-                });
-
-            modelBuilder.Entity("MagazinAlimentar.Models.Many_to_Many.Location", b =>
-                {
-                    b.Navigation("LocationEmployeeRelations");
                 });
 
             modelBuilder.Entity("MagazinAlimentar.Models.One_to_Many.Department", b =>

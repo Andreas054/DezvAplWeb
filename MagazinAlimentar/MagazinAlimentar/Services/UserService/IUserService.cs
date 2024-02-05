@@ -9,5 +9,7 @@ namespace MagazinAlimentar.Services.UserService
         UserResponseDTO Authenticate(UserRequestDTO model);
         User GetById(Guid id);
         Task Create(User newUser);
+        Task Update(User newUser);
+        Task Delete(User userDelete);
     }
 }
